@@ -15,7 +15,30 @@ public class ModItems {
                             new FabricItemSettings()
                                     .group(ItemGroup.FOOD)
                     ));
-
+    public static final Item RICE_BOWL =
+            registerItem("rice_bowl",
+                    new Item(
+                            new FabricItemSettings()
+                                    .group(ItemGroup.FOOD)
+                    ));
+    public static final Item BIRYANI =
+            registerItem("biryani",
+                    new Item(
+                            new FabricItemSettings()
+                                    .group(ItemGroup.FOOD)
+                    ));
+    public static final Item NOODLES =
+            registerItem("noodles",
+                    new Item(
+                            new FabricItemSettings()
+                                    .group(ItemGroup.FOOD)
+                    ));
+    public static final Item PEPSI =
+            registerItem("pepsi",
+                    new Item(
+                            new FabricItemSettings()
+                                    .group(ItemGroup.FOOD)
+                    ));
     public static Item registerItem(String name, Item item){
         return Registry.register(
                 Registry.ITEM,
