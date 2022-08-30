@@ -1,12 +1,14 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "foods",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Oh the Foods You will Have",
+  "description": "Adds New Foods and Ingredients",
   "authors": [
-    "Me!"
+    "shield2448",
+    "TheEndermanGuy",
+    "Romit Paul"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -14,16 +16,20 @@
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/foods/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "net.shield2448.foods.OhTheFoodsYouWillHave"
+    ],
+    "client": [
+      "net.shield2448.foods.OhTheFoodsYouWillHaveClient"
     ]
   },
+
   "mixins": [
-    "modid.mixins.json"
+    "foods.mixins.json"
   ],
 
   "depends": {
