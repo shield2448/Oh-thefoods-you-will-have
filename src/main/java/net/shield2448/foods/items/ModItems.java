@@ -39,6 +39,12 @@ public class ModItems {
                             new FabricItemSettings()
                                     .group(ItemGroup.FOOD)
                     ));
+    public static final Item FRIED_RICE =
+            registerItem("fried_rice",
+                    new Item(
+                            new FabricItemSettings()
+                                    .group(ItemGroup.FOOD)
+                    ));
     public static Item registerItem(String name, Item item){
         return Registry.register(
                 Registry.ITEM,
