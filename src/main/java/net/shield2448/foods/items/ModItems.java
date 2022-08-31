@@ -62,7 +62,8 @@ public class ModItems {
                                     .group(ModItemGroup.MORE_FOODS)
                                     .food(new FoodComponent.Builder()
                                             .snack()
-                                            .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 100, 1), 1.0f)
+                                            .alwaysEdible()
+                                            .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 100, 2), 1.0f)
                                             .build())
                     ));
     public static final Item FRIED_RICE =
