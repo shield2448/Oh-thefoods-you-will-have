@@ -3,6 +3,9 @@
   "item.foods.rice_bowl": "Rice Bowl",
   "item.foods.biryani": "Biryani",
   "item.foods.noodles": "Noodles",
-  "item.foods.pepsi": "Pepsi",
-  "item.foods.fried_rice": "Fried Rice"
+  "item.foods.red_bull": "Red Bull",
+  "item.foods.fried_rice": "Fried Rice",
+
+
+  "itemGroup.foods.more_foods": "More Foods"
 }
