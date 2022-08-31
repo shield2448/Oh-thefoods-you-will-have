@@ -1,6 +1,10 @@
 package net.shield2448.foods.items;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
@@ -26,6 +30,11 @@ public class ModItems {
                     new Item(
                             new FabricItemSettings()
                                     .group(ItemGroup.FOOD)
+                                    .food(new FoodComponent.Builder()
+                                            .saturationModifier(6.0f)
+                                            .hunger(7)
+                                            .statusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 100, 1), 1.0f)
+                                            .build())
                     ));
     public static final Item NOODLES =
             registerItem("noodles",
