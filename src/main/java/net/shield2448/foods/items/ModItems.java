@@ -55,6 +55,17 @@ public class ModItems {
                                             .statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 200, 2), 1.0f)
                                             .build())
                     ));
+    public static final Item SALT =
+            registerItem("salt",
+                    new Item(
+                            new FabricItemSettings()
+                                    .group(ModItemGroup.MORE_FOODS)
+                                    .food(new FoodComponent.Builder()
+                                            .snack()
+                                            .alwaysEdible()
+                                            .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 20, -2), 1.0f)
+                                            .build())
+                    ));
     public static final Item FRIED_RICE =
             registerItem("fried_rice",
                     new Item(
