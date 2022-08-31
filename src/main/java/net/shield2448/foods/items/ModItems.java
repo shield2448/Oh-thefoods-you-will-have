@@ -4,7 +4,6 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.FoodComponent;
-import net.minecraft.item.FoodComponents;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -33,6 +32,7 @@ public class ModItems {
                                             .saturationModifier(6.0f)
                                             .hunger(7)
                                             .statusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 200, 1), 1.0f)
+                                            .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100, 1), 1.0f)
                                             .build())
                     ));
     public static final Item NOODLES =
@@ -51,9 +51,8 @@ public class ModItems {
                             new FabricItemSettings()
                                     .group(ModItemGroup.MORE_FOODS)
                                     .food(new FoodComponent.Builder()
-                                            .alwaysEdible()
                                             .snack()
-                                            .statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 100, 2), 1.0f)
+                                            .statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 200, 2), 1.0f)
                                             .build())
                     ));
     public static final Item FRIED_RICE =
