@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:magma_block"
+    },
+    "@": {
+      "item": "minecraft:oxidized_copper"
+    },
+    "$": {
+      "item": "minecraft:polished_blackstone_pressure_plate"
+    },
+    "!": {
+      "item": "minecraft:cobbled_deepslate"
+    }
+  },
+  "pattern": [
+    "@#@",
+    "$$$",
+    "! !"
+  ],
+  "result": {
+    "item": "foods:stove_level_1"
+  }
+}
