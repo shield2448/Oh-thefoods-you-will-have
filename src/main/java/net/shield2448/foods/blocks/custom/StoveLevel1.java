@@ -1,6 +1,10 @@
 package net.shield2448.foods.blocks.custom;
 
 import net.minecraft.block.*;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.sound.SoundCategory;
@@ -68,6 +72,14 @@ public class StoveLevel1 extends HorizontalFacingBlock{
             world.playSound(null, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1f, 1f);
         }
         return super.onUse(state, world, pos, player, hand, hit);
+    }
+
+    @Override
+    public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
+        if(state.get(LIT) && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity)entity)){
+            entity.damage(DamageSource.IN_FIRE, (float)2);
+        }
+        super.onEntityCollision(state, world, pos, entity);
     }
 
     @Override
