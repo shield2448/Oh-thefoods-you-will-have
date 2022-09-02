@@ -1,0 +1,11 @@
+{
+  "type": "foods:stove",
+  "ingredients": [
+    {
+      "item": "foods:rice_bowl"
+    }
+  ],
+  "output": {
+    "item":"foods:biryani"
+  }
+}
