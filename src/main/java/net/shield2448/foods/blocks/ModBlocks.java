@@ -22,7 +22,8 @@ public class ModBlocks {
                             of(Material.METAL).
                             requiresTool().
                             strength(4f).
-                            nonOpaque()
+                            nonOpaque().
+                            luminance(state -> state.get(StoveLevel1.LIT)? 15:0)
                     ),
                     ModItemGroup.MORE_FOODS
             );

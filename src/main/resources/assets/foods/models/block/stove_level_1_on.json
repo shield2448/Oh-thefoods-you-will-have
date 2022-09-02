@@ -3,6 +3,7 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"0": "foods:block/legs_knob",
+		"5": "block/soul_fire_1",
 		"7": "foods:block/body_top",
 		"8": "foods:block/burner",
 		"9": "foods:block/burner_walls",
@@ -249,11 +250,64 @@
 				"up": {"uv": [4, 3.2, 2, 0], "texture": "#0"},
 				"down": {"uv": [6, 0, 4, 3.2], "texture": "#0"}
 			}
+		},
+		{
+			"from": [5.11652, 8, 7.995],
+			"to": [11.11652, 23.4, 7.995],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8.11652, 9.7, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"up": {"uv": [0, 0, 16, 16], "rotation": 270, "texture": "#5"},
+				"down": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#5"}
+			}
+		},
+		{
+			"from": [5.11299, 8, 7.99646],
+			"to": [11.11299, 23.4, 7.99646],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.11299, 18.7, 7.99646]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"up": {"uv": [0, 0, 16, 16], "rotation": 270, "texture": "#5"},
+				"down": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#5"}
+			}
+		},
+		{
+			"from": [8.11299, 8, 4.99646],
+			"to": [8.11299, 23.4, 10.99646],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.11299, 18.7, 7.99646]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#5"}
+			}
+		},
+		{
+			"from": [5.11299, 8, 7.99646],
+			"to": [11.11299, 23.4, 7.99646],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8.11299, 18.7, 7.99646]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"up": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#5"},
+				"down": {"uv": [0, 0, 16, 16], "rotation": 270, "texture": "#5"}
+			}
 		}
 	],
+	"gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [75, 42, 0],
+			"rotation": [75, 45, 0],
 			"translation": [0, 2.5, 0],
 			"scale": [0.375, 0.375, 0.375]
 		},
@@ -317,6 +371,14 @@
 			"nbt": "{}",
 			"armAnimationEnabled": false,
 			"children": [16, 17, 18, 19]
+		},
+		{
+			"name": "flames",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"nbt": "{}",
+			"armAnimationEnabled": false,
+			"children": [20, 21, 22, 23]
 		}
 	]
 }
