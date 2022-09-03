@@ -1,5 +1,5 @@
 {
-  "type": "foods:stove",
+  "type": "foods:stove_cooking",
   "ingredients": [
     {
       "item": "foods:rice_bowl"

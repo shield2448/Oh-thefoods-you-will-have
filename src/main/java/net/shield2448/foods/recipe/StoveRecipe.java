@@ -3,6 +3,7 @@ package net.shield2448.foods.recipe;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.*;
@@ -16,15 +17,16 @@ public class StoveRecipe implements Recipe<SimpleInventory> {
     private final ItemStack output;
     private final DefaultedList<Ingredient> recipeItems;
 
-    public StoveRecipe(Identifier id, ItemStack output, DefaultedList<Ingredient> recipeItems) {
+    public StoveRecipe(Identifier id, ItemStack output, DefaultedList<Ingredient> recipeItems){
         this.id = id;
         this.output = output;
         this.recipeItems = recipeItems;
     }
 
+
     @Override
     public boolean matches(SimpleInventory inventory, World world) {
-        if(world.isClient()) {
+        if(world.isClient()){
             return false;
         }
 
@@ -61,25 +63,24 @@ public class StoveRecipe implements Recipe<SimpleInventory> {
         return Type.INSTANCE;
     }
 
-    public static class Type implements RecipeType<StoveRecipe> {
+    public static class Type implements RecipeType<StoveRecipe>{
         private Type() { }
         public static final Type INSTANCE = new Type();
-        public static final String ID = "stove";
+        public static final String ID = "stove_cooking";
     }
 
-    public static class Serializer implements RecipeSerializer<StoveRecipe> {
+    public static class Serializer implements RecipeSerializer<StoveRecipe>{
+
         public static final Serializer INSTANCE = new Serializer();
-        public static final String ID = "stove";
-        // this is the name given in the json file
+        public static final String ID = "stove_cooking";
 
         @Override
         public StoveRecipe read(Identifier id, JsonObject json) {
             ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
-
             JsonArray ingredients = JsonHelper.getArray(json, "ingredients");
             DefaultedList<Ingredient> inputs = DefaultedList.ofSize(1, Ingredient.EMPTY);
 
-            for (int i = 0; i < inputs.size(); i++) {
+            for(int i = 0;i < inputs.size();i++){
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
 
@@ -90,7 +91,7 @@ public class StoveRecipe implements Recipe<SimpleInventory> {
         public StoveRecipe read(Identifier id, PacketByteBuf buf) {
             DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(), Ingredient.EMPTY);
 
-            for (int i = 0; i < inputs.size(); i++) {
+            for(int i = 0;i < inputs.size();i++){
                 inputs.set(i, Ingredient.fromPacket(buf));
             }
 
@@ -101,7 +102,7 @@ public class StoveRecipe implements Recipe<SimpleInventory> {
         @Override
         public void write(PacketByteBuf buf, StoveRecipe recipe) {
             buf.writeInt(recipe.getIngredients().size());
-            for (Ingredient ing : recipe.getIngredients()) {
+            for (Ingredient ing : recipe.getIngredients()){
                 ing.write(buf);
             }
             buf.writeItemStack(recipe.getOutput());

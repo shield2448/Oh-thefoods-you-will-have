@@ -17,8 +17,11 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.shield2448.foods.items.ModItems;
+import net.shield2448.foods.recipe.StoveRecipe;
 import net.shield2448.foods.screen.StoveScreenHandler;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class StoveBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
 
@@ -109,10 +112,13 @@ public class StoveBlockEntity extends BlockEntity implements NamedScreenHandlerF
             inventory.setStack(i, entity.getStack(i));
         }
 
+        Optional<StoveRecipe> recipe = entity.getWorld().getRecipeManager()
+                .getFirstMatch(StoveRecipe.Type.INSTANCE, inventory, entity.getWorld());
+
         if(hasRecipe(entity)) {
             entity.removeStack(1, 1);
 
-            entity.setStack(2, new ItemStack(ModItems.BIRYANI,
+            entity.setStack(2, new ItemStack(recipe.get().getOutput().getItem(),
                     entity.getStack(2).getCount() + 1));
 
             entity.resetProgress();
@@ -125,10 +131,13 @@ public class StoveBlockEntity extends BlockEntity implements NamedScreenHandlerF
             inventory.setStack(i, entity.getStack(i));
         }
 
-        boolean hasRawGemInFirstSlot = entity.getStack(1).getItem() == ModItems.RICE_BOWL;
+        Optional<StoveRecipe> match = entity.getWorld().getRecipeManager()
+                .getFirstMatch(StoveRecipe.Type.INSTANCE, inventory, entity.getWorld());
 
-        return hasRawGemInFirstSlot && canInsertAmountIntoOutputSlot(inventory)
-                && canInsertItemIntoOutputSlot(inventory, ModItems.BIRYANI);
+//        boolean hasRawGemInFirstSlot = entity.getStack(1).getItem() == ModItems.RICE_BOWL;
+//
+        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory)
+                && canInsertItemIntoOutputSlot(inventory, match.get().getOutput().getItem());
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleInventory inventory, Item output) {
