@@ -1,5 +1,6 @@
 package net.shield2448.foods.blocks.entity;
 
+import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -16,6 +17,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.shield2448.foods.blocks.custom.StoveLevel1;
 import net.shield2448.foods.items.ModItems;
 import net.shield2448.foods.recipe.StoveRecipe;
 import net.shield2448.foods.screen.StoveScreenHandler;
@@ -55,6 +57,8 @@ public class StoveBlockEntity extends BlockEntity implements NamedScreenHandlerF
         };
     }
 
+    public boolean isBurning(){ return this.progress>0; }
+
     @Override
     public DefaultedList<ItemStack> getItems() {
         return this.inventory;
@@ -92,6 +96,18 @@ public class StoveBlockEntity extends BlockEntity implements NamedScreenHandlerF
     public static void tick(World world, BlockPos blockPos, BlockState state, StoveBlockEntity entity) {
         if(world.isClient()) {
             return;
+        }
+        boolean bl = entity.isBurning();
+        boolean bl2 = false;
+
+        if (bl != entity.isBurning()) {
+            bl2 = true;
+            state = (BlockState)state.with(StoveLevel1.LIT, entity.isBurning());
+            world.setBlockState(blockPos, state);
+        }
+
+        if (bl2) {
+            markDirty(world, blockPos, state);
         }
 
         if(hasRecipe(entity)) {
