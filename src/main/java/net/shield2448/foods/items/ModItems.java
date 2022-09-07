@@ -103,7 +103,7 @@ public class ModItems {
                                             .build())
                     ));
     public static final Item STEAMED_RICE =
-            registerItem("fried_rice",
+            registerItem("steamed_rice",
                     new Item(
                             new FabricItemSettings()
                                     .group(ModItemGroup.MORE_FOODS)
