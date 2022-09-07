@@ -91,8 +91,16 @@ public class ModItems {
                                     .food(new FoodComponent.Builder()
                                             .build())
                     ));
+    public static final Item CURRY =
+            registerItem("curry",
+                    new Item(
+                            new FabricItemSettings()
+                                    .group(ModItemGroup.MORE_FOODS)
+                                    .food(new FoodComponent.Builder()
+                                            .build())
+                    ));
     public static final Item FRIED_RICE =
-            registerItem("fried_rice",
+            registerItem("steam_rice",
                     new Item(
                             new FabricItemSettings()
                                     .group(ModItemGroup.MORE_FOODS)
