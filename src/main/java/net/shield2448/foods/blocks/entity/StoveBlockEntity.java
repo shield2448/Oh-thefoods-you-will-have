@@ -1,6 +1,6 @@
 package net.shield2448.foods.blocks.entity;
 
-import net.minecraft.block.AbstractFurnaceBlock;
+
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,8 +17,6 @@ import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.shield2448.foods.blocks.custom.StoveLevel1;
-import net.shield2448.foods.items.ModItems;
 import net.shield2448.foods.recipe.StoveRecipe;
 import net.shield2448.foods.screen.StoveScreenHandler;
 import org.jetbrains.annotations.Nullable;
@@ -35,26 +33,26 @@ public class StoveBlockEntity extends BlockEntity implements NamedScreenHandlerF
 
     public StoveBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.STOVE, pos, state);
-        this.propertyDelegate = new PropertyDelegate() {
-            public int get(int index) {
-                switch (index) {
-                    case 0: return StoveBlockEntity.this.progress;
-                    case 1: return StoveBlockEntity.this.maxProgress;
-                    default: return 0;
-                }
+    this.propertyDelegate = new PropertyDelegate() {
+        public int get(int index) {
+            switch (index) {
+                case 0: return StoveBlockEntity.this.progress;
+                case 1: return StoveBlockEntity.this.maxProgress;
+                default: return 0;
             }
+        }
 
-            public void set(int index, int value) {
-                switch(index) {
-                    case 0: StoveBlockEntity.this.progress = value; break;
-                    case 1: StoveBlockEntity.this.maxProgress = value; break;
-                }
+        public void set(int index, int value) {
+            switch(index) {
+                case 0: StoveBlockEntity.this.progress = value; break;
+                case 1: StoveBlockEntity.this.maxProgress = value; break;
             }
+        }
 
-            public int size() {
-                return 2;
-            }
-        };
+        public int size() {
+            return 2;
+        }
+    };
     }
 
     public boolean isBurning(){ return this.progress>0; }
@@ -96,18 +94,6 @@ public class StoveBlockEntity extends BlockEntity implements NamedScreenHandlerF
     public static void tick(World world, BlockPos blockPos, BlockState state, StoveBlockEntity entity) {
         if(world.isClient()) {
             return;
-        }
-        boolean bl = entity.isBurning();
-        boolean bl2 = false;
-
-        if (bl != entity.isBurning()) {
-            bl2 = true;
-            state = (BlockState)state.with(StoveLevel1.LIT, entity.isBurning());
-            world.setBlockState(blockPos, state);
-        }
-
-        if (bl2) {
-            markDirty(world, blockPos, state);
         }
 
         if(hasRecipe(entity)) {

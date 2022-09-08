@@ -28,6 +28,9 @@ public class ModBlocks {
                     ModItemGroup.MORE_FOODS
             );
 
+
+
+
     private static Block registerBlock(String name, Block block, ItemGroup tab) {
         registerBlockItem(name, block, tab);
         return Registry.register(Registry.BLOCK, new Identifier(OhTheFoodsYouWillHave.MOD_ID, name), block);

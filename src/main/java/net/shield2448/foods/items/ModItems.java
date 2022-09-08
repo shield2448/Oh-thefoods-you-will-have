@@ -67,40 +67,8 @@ public class ModItems {
                                             .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 100, 2), 1.0f)
                                             .build())
                     ));
-    public static final Item RED_CAPSICUM =
-            registerItem("red_capsicum",
-                    new Item(
-                            new FabricItemSettings()
-                                    .group(ModItemGroup.MORE_FOODS)
-                                    .food(new FoodComponent.Builder()
-                                    .build())
-                    ));
-    public static final Item YELLOW_CAPSICUM =
-            registerItem("yellow_capsicum",
-                    new Item(
-                            new FabricItemSettings()
-                                    .group(ModItemGroup.MORE_FOODS)
-                                    .food(new FoodComponent.Builder()
-                                            .build())
-                    ));
-    public static final Item GREEN_CAPSICUM =
-            registerItem("green_capsicum",
-                    new Item(
-                            new FabricItemSettings()
-                                    .group(ModItemGroup.MORE_FOODS)
-                                    .food(new FoodComponent.Builder()
-                                            .build())
-                    ));
-    public static final Item CURRY =
-            registerItem("curry",
-                    new Item(
-                            new FabricItemSettings()
-                                    .group(ModItemGroup.MORE_FOODS)
-                                    .food(new FoodComponent.Builder()
-                                            .build())
-                    ));
     public static final Item FRIED_RICE =
-            registerItem("steam_rice",
+            registerItem("fried_rice",
                     new Item(
                             new FabricItemSettings()
                                     .group(ModItemGroup.MORE_FOODS)
@@ -111,7 +79,7 @@ public class ModItems {
                                             .build())
                     ));
     public static final Item STEAMED_RICE =
-            registerItem("steamed_rice",
+            registerItem("fried_rice",
                     new Item(
                             new FabricItemSettings()
                                     .group(ModItemGroup.MORE_FOODS)

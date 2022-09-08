@@ -72,7 +72,7 @@ public class StoveLevel1 extends BlockWithEntity implements BlockEntityProvider 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if(!world.isClient() && hand == Hand.MAIN_HAND){
-//            world.setBlockState(pos, state.cycle(LIT));
+            world.setBlockState(pos, state.cycle(LIT));
             world.playSound(null, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1f, 1f);
 
             NamedScreenHandlerFactory screenHandlerFactory = state.createScreenHandlerFactory(world, pos);
